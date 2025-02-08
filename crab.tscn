@@ -1,66 +1,50 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqsu1ma5siqaf"]
+[gd_scene load_steps=18 format=3 uid="uid://cqsu1ma5siqaf"]
 
-[ext_resource type="Texture2D" path="res://spritesheet.png" id="1_gnjhc"]
 [ext_resource type="Script" path="res://crab_sprite.gd" id="2_310yi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3egg"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(0, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhq1p"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(2048, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5qba"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(4096, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gy07q"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(0, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4ayq"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(2048, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwppq"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(6144, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0e83"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(6144, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7upy1"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(2048, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ceja"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(4096, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4p0gq"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(6144, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyw3i"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(6144, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjtbf"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(4096, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3g5a"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(0, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dj0kp"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(6144, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cimox"]
-atlas = ExtResource("1_gnjhc")
 region = Rect2(6144, 2048, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ayw5c"]
@@ -137,7 +121,7 @@ animations = [{
 position = Vector2(495, 237)
 scale = Vector2(0.401367, 0.34082)
 sprite_frames = SubResource("SpriteFrames_ayw5c")
-animation = &"idle"
+animation = &"snap_both"
 script = ExtResource("2_310yi")
 
 [connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]
