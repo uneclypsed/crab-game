@@ -7,5 +7,6 @@
 script = ExtResource("1_o5eq7")
 
 [node name="TempSprite" type="Sprite2D" parent="."]
+position = Vector2(4, -2)
 scale = Vector2(0.0240533, 0.733059)
 texture = ExtResource("2_vu41s")

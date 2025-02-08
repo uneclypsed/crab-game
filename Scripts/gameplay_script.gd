@@ -5,8 +5,13 @@ extends Node2D
 var prey = load("res://Scenes/Prey.tscn")
 var prey_instance = null
 
+var perfect = 0
+var nice = 0
+var okay = 0
+
 var score : int = 0
 var bpm = 125
+
 
 var x_speed = 3
 
@@ -19,8 +24,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
-	
+
+
 func _input(event):
 	if event.is_action_pressed("key_left"):
 		spawn_prey(0)
@@ -38,10 +43,13 @@ func spawn_prey(lane):
 	
 func update_score(quality):
 	if quality == 0:
+		perfect += 1
 		score += 10
 	elif quality == 1:
+		nice += 1
 		score += 3
 	elif quality == 2:
+		okay += 1
 		score += 1
 	
 	$ScoreBoard.text = "Score: " + str(score)

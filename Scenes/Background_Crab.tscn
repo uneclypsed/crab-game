@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkrjdswx66nkt"]
+[gd_scene load_steps=11 format=3 uid="uid://dkrjdswx66nkt"]
 
 [ext_resource type="Script" path="res://Scripts/background_crab.gd" id="1_sp3w6"]
 [ext_resource type="Texture2D" uid="uid://c3gd0pyg8i5a" path="res://Assets/stock_crab1.webp" id="2_gegkr"]
@@ -6,9 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://b5lrs6ay0y8lc" path="res://Assets/stock_crab3.webp" id="4_sqvw7"]
 [ext_resource type="Texture2D" uid="uid://xoqng6soljp7" path="res://Assets/stock_crab4.png" id="5_gc026"]
 [ext_resource type="Texture2D" uid="uid://sm2l5ovv2are" path="res://Assets/stock_crab5.webp" id="6_ljrbo"]
+[ext_resource type="Texture2D" uid="uid://cjh8ggixra4im" path="res://Assets/stock_crab6.png" id="7_ps820"]
+[ext_resource type="Texture2D" uid="uid://bycl85p1jyx4f" path="res://Assets/stock_crab7.webp" id="8_fwo2r"]
+[ext_resource type="Texture2D" uid="uid://bpru68oyg52te" path="res://Assets/stock_crab9.png" id="10_2h0f1"]
+[ext_resource type="Texture2D" uid="uid://dtrl641gxg63h" path="res://Assets/stock_crab10.png" id="11_okeht"]
 
 [node name="BackgroundCrab" type="Node2D"]
-scale = Vector2(0.572308, 0.572308)
+z_index = -1
+scale = Vector2(0.499462, 0.499462)
 script = ExtResource("1_sp3w6")
 
 [node name="Crab1" type="Sprite2D" parent="."]
@@ -39,3 +44,35 @@ visible = false
 position = Vector2(134, 104)
 scale = Vector2(0.602893, 0.602893)
 texture = ExtResource("6_ljrbo")
+
+[node name="Crab6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(134, 104)
+scale = Vector2(0.201813, 0.201813)
+texture = ExtResource("7_ps820")
+
+[node name="Crab7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(134, 104)
+scale = Vector2(0.602893, 0.602893)
+texture = ExtResource("8_fwo2r")
+
+[node name="Crab9" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(134, 104)
+scale = Vector2(0.226712, 0.226712)
+texture = ExtResource("10_2h0f1")
+
+[node name="Crab10" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(101.344, 134.543)
+scale = Vector2(0.214344, 0.214344)
+texture = ExtResource("11_okeht")
+
+[node name="p0" type="Node2D" parent="."]
+
+[node name="p1" type="Node2D" parent="."]
+position = Vector2(58.0625, -112.121)
+
+[node name="p2" type="Node2D" parent="."]
+position = Vector2(114.123, 2.00216)
