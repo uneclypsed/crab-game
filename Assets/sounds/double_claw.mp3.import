@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://datu5s7i8vtv0"
-path="res://.godot/imported/double_claw.mp3-136d69c2fecba44d615d3660db6c9f23.mp3str"
+path="res://.godot/imported/double_claw.mp3-a1e0cec90235d94e5e2050f5fc076284.mp3str"
 
 [deps]
 
-source_file="res://double_claw.mp3"
-dest_files=["res://.godot/imported/double_claw.mp3-136d69c2fecba44d615d3660db6c9f23.mp3str"]
+source_file="res://Assets/sounds/double_claw.mp3"
+dest_files=["res://.godot/imported/double_claw.mp3-a1e0cec90235d94e5e2050f5fc076284.mp3str"]
 
 [params]
 

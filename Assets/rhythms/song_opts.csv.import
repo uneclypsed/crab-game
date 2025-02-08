@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cn7ggn6jnyy1k"
+
+[deps]
+
+files=["res://Assets/rhythms/song_opts. bpm.translation", "res://Assets/rhythms/song_opts. duration.translation"]
+
+source_file="res://Assets/rhythms/song_opts.csv"
+dest_files=["res://Assets/rhythms/song_opts. bpm.translation", "res://Assets/rhythms/song_opts. duration.translation"]
+
+[params]
+
+compress=true
+delimiter=0

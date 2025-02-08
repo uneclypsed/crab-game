@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://fep3tfomlxv1"]
 
 [ext_resource type="Script" path="res://Scripts/prey_script.gd" id="1_r2kic"]
-[ext_resource type="Texture2D" uid="uid://cqg1ohdbisaey" path="res://Assets/prey_sprites.png" id="2_dui0t"]
+[ext_resource type="Texture2D" uid="uid://bg8cf02mps2s1" path="res://Assets/sprites/prey_sprites.png" id="2_dui0t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lct0c"]
 atlas = ExtResource("2_dui0t")
