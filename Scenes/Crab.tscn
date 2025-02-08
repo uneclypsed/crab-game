@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqsu1ma5siqaf"]
 
-[ext_resource type="Texture2D" path="res://Assets/crab_sprites.png" id="1_1h7ei"]
-[ext_resource type="Script" path="res://Scripts/crab_sprite.gd" id="2_v283r"]
+[ext_resource type="Texture2D" uid="uid://d3c7qbwyqqddu" path="res://Assets/sprites/crab_sprites.png" id="1_1h7ei"]
+[ext_resource type="Script" path="res://Scripts/crab_script.gd" id="2_v283r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00fxy"]
 atlas = ExtResource("1_1h7ei")
@@ -117,6 +117,8 @@ position = Vector2(495, 237)
 scale = Vector2(0.401367, 0.34082)
 sprite_frames = SubResource("SpriteFrames_ayw5c")
 animation = &"snap_right"
+frame = 2
+frame_progress = 1.0
 script = ExtResource("2_v283r")
 
 [connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]

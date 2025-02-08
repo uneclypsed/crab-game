@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0ujjbtu3i701"]
+[gd_scene load_steps=7 format=3 uid="uid://d0ujjbtu3i701"]
 
 [ext_resource type="Script" path="res://Scripts/user_interface.gd" id="1_thrp1"]
+[ext_resource type="Texture2D" uid="uid://dmc8d41cu1n57" path="res://Assets/sprites/UserInterfaceImgs/Background.png" id="2_314j6"]
+[ext_resource type="Texture2D" uid="uid://d12s532b3yc4y" path="res://Assets/sprites/UserInterfaceImgs/Crab Crab.png" id="3_16m2t"]
+[ext_resource type="Texture2D" uid="uid://d1ehcfgfr10ic" path="res://Assets/sprites/UserInterfaceImgs/Revolution.png" id="4_7hl3y"]
+[ext_resource type="Texture2D" uid="uid://bb27ah2hv5x1m" path="res://Assets/sprites/UserInterfaceImgs/Untitled_Artwork-2 (2).png" id="5_eol01"]
+[ext_resource type="Texture2D" uid="uid://busis2v3bi1sq" path="res://Assets/sprites/UserInterfaceImgs/Name.png" id="6_h7hcq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,19 +16,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_thrp1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577, 367)
+scale = Vector2(1.16602, 0.728516)
+texture = ExtResource("2_314j6")
+
+[node name="CrabCrab" type="Sprite2D" parent="."]
+position = Vector2(320, 120.5)
+texture = ExtResource("3_16m2t")
+region_enabled = true
+region_rect = Rect2(50, 25, 600, 175)
+
+[node name="Revolution" type="Sprite2D" parent="."]
+position = Vector2(557, 287.5)
+scale = Vector2(1.19059, 1.33)
+texture = ExtResource("4_7hl3y")
+region_enabled = true
+region_rect = Rect2(125, 150, 850, 200)
+
+[node name="UntitledArtwork-2(2)" type="Sprite2D" parent="."]
+position = Vector2(578, 482.5)
+texture = ExtResource("5_eol01")
+region_enabled = true
+region_rect = Rect2(50, 300, 900, 250)
+
+[node name="Name" type="Sprite2D" parent="."]
+position = Vector2(368, 520)
+texture = ExtResource("6_h7hcq")
+region_enabled = true
+region_rect = Rect2(100, 400, 350, 130)
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 226.0
-offset_right = 753.0
-offset_bottom = 367.0
-placeholder_text = "Enter your name"
+offset_left = 524.0
+offset_top = 458.0
+offset_right = 857.0
+offset_bottom = 563.0
+placeholder_text = "Enter your name!"
 alignment = 1
-caret_blink = true
+flat = true
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
