@@ -1,0 +1,126 @@
+[gd_scene load_steps=16 format=3 uid="uid://fep3tfomlxv1"]
+
+[ext_resource type="Script" path="res://prey_script.gd" id="1_r2kic"]
+[ext_resource type="Texture2D" uid="uid://cqg1ohdbisaey" path="res://prey_sprites.png" id="2_dui0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lct0c"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(0, 0, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s4se"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(0, 897, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x5qr"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(1129, 897, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfgyj"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(0, 1794, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmyd6"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(1129, 1794, 1129, 897)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tju5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lct0c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s4se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x5qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfgyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmyd6")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xuts"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(2258, 0, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qykp1"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(2258, 897, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71qoo"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(2258, 1794, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vesqr"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(0, 2691, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rimum"]
+atlas = ExtResource("2_dui0t")
+region = Rect2(1129, 0, 1129, 897)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iijml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xuts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qykp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71qoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vesqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rimum")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khy0k"]
+size = Vector2(165, 146.5)
+
+[node name="Prey" type="Area2D"]
+position = Vector2(379, 301)
+scale = Vector2(0.297895, 0.297895)
+script = ExtResource("1_r2kic")
+
+[node name="FishSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-117.491, -57.0671)
+sprite_frames = SubResource("SpriteFrames_tju5c")
+animation = &"explode"
+
+[node name="SquidSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iijml")
+animation = &"explode"
+
+[node name="PreyGoodCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-59, -70)
+shape = SubResource("RectangleShape2D_khy0k")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

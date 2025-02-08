@@ -1,54 +1,54 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqsu1ma5siqaf"]
 
-[ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://crab_sprites.png" id="1_ocktv"]
-[ext_resource type="Script" path="res://crab_sprite.gd" id="2_310yi"]
+[ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://crab_sprites.png" id="1_1h7ei"]
+[ext_resource type="Script" path="res://crab_sprite.gd" id="2_v283r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00fxy"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(4096, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v2fl"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(2048, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snkci"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(0, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ok1gj"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(0, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mput6"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(2048, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63sv1"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(6144, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vg81q"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(2048, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwin5"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(4096, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htef6"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(6144, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo64s"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(4096, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uioks"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(0, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nosi5"]
-atlas = ExtResource("1_ocktv")
+atlas = ExtResource("1_1h7ei")
 region = Rect2(6144, 2048, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ayw5c"]
@@ -117,6 +117,6 @@ position = Vector2(495, 237)
 scale = Vector2(0.401367, 0.34082)
 sprite_frames = SubResource("SpriteFrames_ayw5c")
 animation = &"snap_right"
-script = ExtResource("2_310yi")
+script = ExtResource("2_v283r")
 
 [connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]

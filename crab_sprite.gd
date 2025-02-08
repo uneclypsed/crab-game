@@ -18,10 +18,10 @@ var action_A = 'key_left'
 var action_B = 'key_right'
 
 func _input(event):
-	if !event.is_action_pressed(action_B):
-		b_time = null
-	if !event.is_action_pressed(action_A):
-		a_time = null
+	#if !event.is_action_pressed(action_B):
+		#b_time = null
+	#if !event.is_action_pressed(action_A):
+		#a_time = null
 	var now = Time.get_ticks_msec()
 	if event.is_action_pressed(action_A):
 		if b_time != null:
@@ -44,6 +44,12 @@ func _input(event):
 
 	if event.is_action_released(action_B):
 		b_time = null
+	
+	
+	if !event.is_action_pressed(action_B):
+		b_time = null
+	if !event.is_action_pressed(action_A):
+		a_time = null
 
 
 func _on_animation_finished() -> void:

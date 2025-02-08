@@ -1,56 +1,56 @@
-[gd_scene load_steps=18 format=3 uid="uid://kitv7sxpjxbe"]
+[gd_scene load_steps=18 format=3 uid="uid://bhq2sy8vq7xdf"]
 
-[ext_resource type="Script" path="res://crab_play_scene.gd" id="1_0wg3r"]
-[ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://audio_player.tscn" id="2_fpdvg"]
-[ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://crab_sprites.png" id="3_1ggt4"]
-[ext_resource type="Script" path="res://crab_sprite.gd" id="5_208wt"]
+[ext_resource type="Script" path="res://gameplay_script.gd" id="1_y3lv6"]
+[ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
+[ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://crab_sprites.png" id="3_fwdxp"]
+[ext_resource type="Script" path="res://crab_sprite.gd" id="4_4skr6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(4096, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_awj5f"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(0, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7y22"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(2048, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdk47"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(0, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtm4e"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(2048, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8j78q"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk5y8"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(2048, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_420em"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(4096, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3b02f"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar63b"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(4096, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2trgq"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(0, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0w2p"]
-atlas = ExtResource("3_1ggt4")
+atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 2048, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vi4th"]
@@ -112,16 +112,16 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="CrabPlayScene" type="Node2D"]
-script = ExtResource("1_0wg3r")
+[node name="GamePlayScene" type="Node2D"]
+script = ExtResource("1_y3lv6")
 
-[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_fpdvg")]
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_3ryrm")]
 
 [node name="CrabSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(495, 237)
-scale = Vector2(0.401367, 0.34082)
+position = Vector2(548, 497)
+scale = Vector2(0.182823, 0.155244)
 sprite_frames = SubResource("SpriteFrames_vi4th")
 animation = &"idle"
-script = ExtResource("5_208wt")
+script = ExtResource("4_4skr6")
 
 [connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]
