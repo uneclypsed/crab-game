@@ -96,15 +96,15 @@ animations = [{
 }],
 "loop": false,
 "name": &"explode",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khy0k"]
 size = Vector2(165, 146.5)
 
-[node name="Prey" type="Area2D"]
+[node name="Prey" type="Area2D" groups=["prey"]]
 position = Vector2(379, 301)
-scale = Vector2(0.297895, 0.297895)
+scale = Vector2(0.173648, 0.173648)
 script = ExtResource("1_r2kic")
 
 [node name="FishSprite" type="AnimatedSprite2D" parent="."]
@@ -118,9 +118,9 @@ animation = &"explode"
 
 [node name="PreyGoodCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-59, -70)
+scale = Vector2(0.775509, 1.45672)
 shape = SubResource("RectangleShape2D_khy0k")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
+[node name="Timer" type="Timer" parent="." groups=["prey"]]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

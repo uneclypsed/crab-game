@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqsu1ma5siqaf"]
 
 [ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://Assets/crab_sprites.png" id="1_1h7ei"]
-[ext_resource type="Script" path="res://Scripts/crab_sprite.gd" id="2_v283r"]
+[ext_resource type="Script" path="res://Scripts/crab_script.gd" id="2_v283r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00fxy"]
 atlas = ExtResource("1_1h7ei")
