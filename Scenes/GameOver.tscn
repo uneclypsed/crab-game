@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://c3nlns0yg5fub"]
+
+[ext_resource type="Texture2D" uid="uid://b5k50yjqvqj42" path="res://Assets/sprites/GameOverImgs/Background.png" id="1_t0n48"]
+[ext_resource type="Texture2D" uid="uid://bf4rkqsuqxrqt" path="res://Assets/sprites/GameOverImgs/ScoreBox.png" id="2_fqwut"]
+[ext_resource type="Texture2D" uid="uid://bdsv535bm6ojc" path="res://Assets/sprites/GameOverImgs/Nices.png" id="3_1ufr2"]
+[ext_resource type="Texture2D" uid="uid://bojofytieragi" path="res://Assets/sprites/GameOverImgs/Okays.png" id="4_4ois2"]
+[ext_resource type="Texture2D" uid="uid://b20yn7wl5rymb" path="res://Assets/sprites/GameOverImgs/Perfects.png" id="5_il7fr"]
+[ext_resource type="Texture2D" uid="uid://bqxnlapxwi1hy" path="res://Assets/sprites/GameOverImgs/Next Button.png" id="6_dyr2o"]
+[ext_resource type="Script" path="res://Scripts/next_button.gd" id="7_sm12n"]
+[ext_resource type="Texture2D" uid="uid://cay6ibmo5d05o" path="res://Assets/sprites/GameOverImgs/Over.png" id="8_im58f"]
+[ext_resource type="Texture2D" uid="uid://cd3se8grf36q0" path="res://Assets/sprites/GameOverImgs/Game.png" id="9_cyeyr"]
+[ext_resource type="Texture2D" uid="uid://pds41po8qy1j" path="res://Assets/sprites/GameOverImgs/Score.png" id="10_obnkv"]
+[ext_resource type="FontFile" uid="uid://c3vtmasey0nlh" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="11_r5eaw"]
+[ext_resource type="Texture2D" uid="uid://v7opyf1o1pj7" path="res://Assets/sprites/GameOverImgs/new high score one line.png" id="12_a33ug"]
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576.5, 328)
+scale = Vector2(1.15332, 0.675781)
+texture = ExtResource("1_t0n48")
+
+[node name="ScoreBox" type="Sprite2D" parent="."]
+position = Vector2(556, 385.75)
+scale = Vector2(1.12235, 0.93375)
+texture = ExtResource("2_fqwut")
+region_enabled = true
+region_rect = Rect2(50, 300, 850, 400)
+
+[node name="Nices" type="Sprite2D" parent="."]
+position = Vector2(697, 287)
+texture = ExtResource("3_1ufr2")
+region_enabled = true
+region_rect = Rect2(500, 350, 250, 100)
+
+[node name="Okays" type="Sprite2D" parent="."]
+position = Vector2(247, 361)
+texture = ExtResource("4_4ois2")
+region_enabled = true
+region_rect = Rect2(100, 400, 250, 150)
+
+[node name="Perfects" type="Sprite2D" parent="."]
+position = Vector2(261, 291)
+scale = Vector2(0.92, 0.9)
+texture = ExtResource("5_il7fr")
+region_enabled = true
+region_rect = Rect2(100, 350, 300, 100)
+
+[node name="NextButton" type="Sprite2D" parent="."]
+position = Vector2(1048, 578)
+scale = Vector2(0.816667, 0.865)
+texture = ExtResource("6_dyr2o")
+region_enabled = true
+region_rect = Rect2(600, 700, 300, 200)
+script = ExtResource("7_sm12n")
+
+[node name="Over" type="Sprite2D" parent="."]
+position = Vector2(842, 122.5)
+scale = Vector2(1, 1.045)
+texture = ExtResource("8_im58f")
+region_enabled = true
+region_rect = Rect2(400, 200, 600, 200)
+
+[node name="Game" type="Sprite2D" parent="."]
+position = Vector2(320, 121.5)
+scale = Vector2(1, 1.47333)
+texture = ExtResource("9_cyeyr")
+region_enabled = true
+region_rect = Rect2(0, 75, 550, 150)
+
+[node name="Score" type="Sprite2D" parent="."]
+position = Vector2(365, 487)
+texture = ExtResource("10_obnkv")
+region_enabled = true
+region_rect = Rect2(100, 500, 450, 200)
+
+[node name="Perfects Count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 251.0
+offset_right = 555.0
+offset_bottom = 314.0
+theme_override_colors/font_color = Color(0.342118, 0.543857, 0.54088, 1)
+theme_override_colors/font_outline_color = Color(0.945098, 0.898039, 0.905882, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("11_r5eaw")
+theme_override_font_sizes/font_size = 30
+text = "Score1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Total Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 457.0
+offset_right = 969.0
+offset_bottom = 543.0
+theme_override_colors/font_color = Color(0.905882, 0.439216, 0.419608, 1)
+theme_override_colors/font_shadow_color = Color(0.882353, 0.47451, 0.470588, 1)
+theme_override_colors/font_outline_color = Color(0.961879, 0.755775, 0.740346, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("11_r5eaw")
+theme_override_font_sizes/font_size = 70
+text = "10,000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nices Count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 254.0
+offset_right = 985.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(0.424376, 0.220087, 0.606248, 1)
+theme_override_colors/font_outline_color = Color(0.945098, 0.898039, 0.905882, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("11_r5eaw")
+theme_override_font_sizes/font_size = 30
+text = "Score1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Okays Count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 330.0
+offset_right = 554.0
+offset_bottom = 393.0
+theme_override_colors/font_color = Color(0.329774, 0.111488, 0.324737, 1)
+theme_override_colors/font_outline_color = Color(0.945098, 0.898039, 0.905882, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("11_r5eaw")
+theme_override_font_sizes/font_size = 30
+text = "Score1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewHighScoreOneLine" type="Sprite2D" parent="."]
+position = Vector2(750, 433)
+texture = ExtResource("12_a33ug")
+region_enabled = true
+region_rect = Rect2(450, 450, 450, 100)
