@@ -13,7 +13,7 @@
 [ext_resource type="FontFile" uid="uid://c3vtmasey0nlh" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="11_r5eaw"]
 [ext_resource type="Texture2D" uid="uid://v7opyf1o1pj7" path="res://Assets/sprites/GameOverImgs/new high score one line.png" id="12_a33ug"]
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,6 +114,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Nices Count" type="Label" parent="."]
+layout_mode = 0
 offset_left = 805.0
 offset_top = 254.0
 offset_right = 985.0
@@ -128,6 +129,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Okays Count" type="Label" parent="."]
+layout_mode = 0
 offset_left = 374.0
 offset_top = 330.0
 offset_right = 554.0
