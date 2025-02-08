@@ -1,10 +1,21 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=22 format=3 uid="uid://bhq2sy8vq7xdf"]
 
 [ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
 [ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
 [ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
+=======
+[gd_scene load_steps=25 format=3 uid="uid://bhq2sy8vq7xdf"]
+
+[ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
+[ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
+[ext_resource type="Texture2D" uid="uid://d3c7qbwyqqddu" path="res://Assets/sprites/crab_sprites.png" id="3_fwdxp"]
+[ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
+[ext_resource type="Texture2D" uid="uid://ds5drujghurcm" path="res://Assets/sprites/icon.svg" id="5_msgib"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://Scripts/prey_detector.gd" id="6_33y5b"]
 [ext_resource type="Script" path="res://Scripts/exclamation_spawn_position.gd" id="7_n2tx4"]
+[ext_resource type="Script" path="res://Scripts/timer.gd" id="8_ek3oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
 region = Rect2(4096, 4096, 2048, 2048)
@@ -111,6 +122,9 @@ size = Vector2(50.304, 15.9657)
 script/source = "extends Node2D
 
 
+var b_crab = load(\"res://Scenes/Background_Crab.tscn\")
+var b_crab_instance = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -119,6 +133,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func spawn_b_crab():
+	add_child(b_crab_instance)
+	b_crab_instance = b_crab.instantiate()
+	b_crab_instance.initialize()
+	b_crab_instance.x_speed = randf_range(2, 4)
+
+
+func _on_timer_timeout() -> void:
+	spawn_b_crab()
 "
 
 [node name="GamePlayScene" type="Node2D"]
@@ -201,7 +225,11 @@ scale = Vector2(2.24651, 61.3385)
 shape = SubResource("RectangleShape2D_7drev")
 
 [node name="BackgroundCrabs" type="Node2D" parent="."]
+z_index = -1
 script = SubResource("GDScript_n8g7x")
+
+[node name="Timer" type="Timer" parent="BackgroundCrabs"]
+script = ExtResource("8_ek3oq")
 
 [node name="ScoreBoard" type="Label" parent="."]
 offset_left = 13.0
@@ -224,3 +252,5 @@ text = "balls"
 [connection signal="area_exited" from="RightPreyDetector/OkArea" to="RightPreyDetector" method="_on_ok_area_area_exited"]
 [connection signal="area_entered" from="RightPreyDetector/ShitArea" to="RightPreyDetector" method="_on_shit_area_area_entered"]
 [connection signal="area_exited" from="RightPreyDetector/ShitArea" to="RightPreyDetector" method="_on_shit_area_area_exited"]
+[connection signal="timeout" from="BackgroundCrabs/Timer" to="BackgroundCrabs" method="_on_timer_timeout"]
+[connection signal="timeout" from="BackgroundCrabs/Timer" to="BackgroundCrabs/Timer" method="_on_timeout"]

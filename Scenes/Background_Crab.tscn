@@ -8,28 +8,34 @@
 [ext_resource type="Texture2D" uid="uid://sm2l5ovv2are" path="res://Assets/stock_crab5.webp" id="6_ljrbo"]
 
 [node name="BackgroundCrab" type="Node2D"]
+scale = Vector2(0.572308, 0.572308)
 script = ExtResource("1_sp3w6")
 
 [node name="Crab1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(134, 104)
 texture = ExtResource("2_gegkr")
 
 [node name="Crab2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(134, 104)
 scale = Vector2(0.132116, 0.132116)
 texture = ExtResource("3_aclmm")
 
 [node name="Crab3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(134, 104)
 scale = Vector2(0.171606, 0.171606)
 texture = ExtResource("4_sqvw7")
 
 [node name="Crab4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(134, 104)
-scale = Vector2(1.04093, 1.04093)
+scale = Vector2(1.43968, 1.43968)
 texture = ExtResource("5_gc026")
 
 [node name="Crab5" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(134, 104)
-scale = Vector2(0.706095, 0.706095)
+scale = Vector2(0.602893, 0.602893)
 texture = ExtResource("6_ljrbo")

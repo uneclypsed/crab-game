@@ -3,7 +3,7 @@ extends Node2D
 #var crab_sprite = load("Crab")
 #var audio_player = load("AudioStreamPlayer2D")
 var prey = load("res://Scenes/Prey.tscn")
-var prey_instance
+var prey_instance = null
 
 var score : int = 0
 var bpm = 125
@@ -24,6 +24,8 @@ func _input(event):
 		spawn_prey(0)
 	if event.is_action_pressed("key_right"):
 		spawn_prey(1)
+	if event.is_action_pressed("space"):
+		$BackgroundCrabs.spawn_b_crab()
 
 
 func spawn_prey(lane):

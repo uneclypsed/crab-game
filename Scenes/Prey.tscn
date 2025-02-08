@@ -7,7 +7,7 @@
 atlas = ExtResource("2_dui0t")
 region = Rect2(0, 0, 1129, 897)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3s4se"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvcpl"]
 atlas = ExtResource("2_dui0t")
 region = Rect2(0, 897, 1129, 897)
 
@@ -28,15 +28,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lct0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvcpl")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3s4se")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3x5qr")
 }, {
@@ -55,7 +55,7 @@ animations = [{
 atlas = ExtResource("2_dui0t")
 region = Rect2(2258, 0, 1129, 897)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qykp1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fpvq"]
 atlas = ExtResource("2_dui0t")
 region = Rect2(2258, 897, 1129, 897)
 
@@ -76,15 +76,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6xuts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fpvq")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qykp1")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_71qoo")
 }, {
@@ -115,10 +115,11 @@ animation = &"explode"
 [node name="SquidSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iijml")
 animation = &"explode"
+metadata/_edit_group_ = true
 
 [node name="PreyGoodCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-59, -70)
-scale = Vector2(0.775509, 1.45672)
+scale = Vector2(0.986518, 2.1999)
 shape = SubResource("RectangleShape2D_khy0k")
 
 [node name="Timer" type="Timer" parent="." groups=["prey"]]

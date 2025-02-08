@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 var a_time = null
 var b_time = null
-var max_milliseconds = 50
+var max_milliseconds = 20
 var action_A = 'key_left'
 var action_B = 'key_right'
 
@@ -28,7 +28,7 @@ func _input(event):
 			play("snap_both")
 		else:
 			play("snap_left")
-			
+			frame = 0
 		a_time = now
 		
 	if event.is_action_released(action_A):
@@ -39,6 +39,7 @@ func _input(event):
 			play("snap_both")
 		else:
 			play("snap_right")
+			frame = 0
 
 	b_time = now
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxq163r35bef8"]
 
-[ext_resource type="Texture2D" uid="uid://dhypbw6wfpp4r" path="res://Assets/icon.svg" id="1_jiakp"]
 [ext_resource type="Script" path="res://Scripts/exclamation.gd" id="1_o5eq7"]
+[ext_resource type="Texture2D" uid="uid://33dw05a08d0g" path="res://Assets/stock_crab2.png" id="2_vu41s"]
 
 [node name="QualityExclamation" type="Node2D"]
 script = ExtResource("1_o5eq7")
 
 [node name="TempSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.638515, 0.627488)
-texture = ExtResource("1_jiakp")
+scale = Vector2(0.0240533, 0.733059)
+texture = ExtResource("2_vu41s")
