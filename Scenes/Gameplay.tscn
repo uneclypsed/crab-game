@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhq2sy8vq7xdf"]
+[gd_scene load_steps=24 format=3 uid="uid://bhq2sy8vq7xdf"]
 
 [ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
 [ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
-[ext_resource type="Texture2D" uid="uid://d3c7qbwyqqddu" path="res://Assets/sprites/crab_sprites.png" id="3_fwdxp"]
-[ext_resource type="Texture2D" uid="uid://cl72vgi3k1nps" path="res://Assets/Beach Background.jpg" id="3_yaeso"]
-[ext_resource type="Script" path="res://Scripts/crab_sprite.gd" id="4_4skr6"]
-[ext_resource type="Texture2D" uid="uid://ctxl68j8rn0ys" path="res://Assets/Line.png" id="6_ixjde"]
+[ext_resource type="Texture2D" path="res://Assets/crab_sprites.png" id="3_fwdxp"]
+[ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
+[ext_resource type="Texture2D" path="res://Assets/icon.svg" id="5_msgib"]
+[ext_resource type="Script" path="res://Scripts/prey_detector.gd" id="6_33y5b"]
+[ext_resource type="Script" path="res://Scripts/exclamation_spawn_position.gd" id="7_n2tx4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
 atlas = ExtResource("3_fwdxp")
@@ -19,10 +20,6 @@ region = Rect2(0, 0, 2048, 2048)
 atlas = ExtResource("3_fwdxp")
 region = Rect2(2048, 2048, 2048, 2048)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdk47"]
-atlas = ExtResource("3_fwdxp")
-region = Rect2(0, 2048, 2048, 2048)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtm4e"]
 atlas = ExtResource("3_fwdxp")
 region = Rect2(2048, 4096, 2048, 2048)
@@ -31,9 +28,9 @@ region = Rect2(2048, 4096, 2048, 2048)
 atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 4096, 2048, 2048)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kk5y8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdk47"]
 atlas = ExtResource("3_fwdxp")
-region = Rect2(2048, 0, 2048, 2048)
+region = Rect2(0, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_420em"]
 atlas = ExtResource("3_fwdxp")
@@ -43,9 +40,9 @@ region = Rect2(4096, 2048, 2048, 2048)
 atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 0, 2048, 2048)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ar63b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk5y8"]
 atlas = ExtResource("3_fwdxp")
-region = Rect2(4096, 0, 2048, 2048)
+region = Rect2(2048, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2trgq"]
 atlas = ExtResource("3_fwdxp")
@@ -54,6 +51,10 @@ region = Rect2(0, 4096, 2048, 2048)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0w2p"]
 atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar63b"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(4096, 0, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vi4th"]
 animations = [{
@@ -73,13 +74,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fdk47")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_gtm4e")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8j78q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdk47")
 }],
 "loop": false,
 "name": &"snap_both",
@@ -87,13 +88,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kk5y8")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_420em")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3b02f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk5y8")
 }],
 "loop": false,
 "name": &"snap_left",
@@ -101,53 +102,142 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ar63b")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_2trgq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p0w2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar63b")
 }],
 "loop": false,
 "name": &"snap_right",
 "speed": 8.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_p2v2b"]
-offsets = PackedFloat32Array(0, 0.526667, 1)
-colors = PackedColorArray(0.564706, 0.580392, 0.701961, 1, 0.55451, 0.580392, 0.712157, 1, 0.545098, 0.580392, 0.721569, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n080v"]
+size = Vector2(125.242, 273.512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7drev"]
+size = Vector2(50.304, 15.9657)
+
+[sub_resource type="GDScript" id="GDScript_n8g7x"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="GamePlayScene" type="Node2D"]
 script = ExtResource("1_y3lv6")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_3ryrm")]
-
-[node name="BeachBackground" type="Sprite2D" parent="."]
-position = Vector2(575, 295)
-scale = Vector2(1.15625, 0.833008)
-texture = ExtResource("3_yaeso")
-
-[node name="Line" type="Sprite2D" parent="."]
-position = Vector2(552, 415)
-scale = Vector2(0.710938, 0.710938)
-texture = ExtResource("6_ixjde")
+position = Vector2(134, 318)
 
 [node name="CrabSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(548, 497)
 scale = Vector2(0.182823, 0.155244)
 sprite_frames = SubResource("SpriteFrames_vi4th")
-animation = &"idle"
+animation = &"snap_right"
 script = ExtResource("4_4skr6")
 
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-position = Vector2(267.398, 0)
-scale = Vector2(0.48537, 1)
-points = PackedVector2Array(3, 420, 1145, 420)
-closed = true
-width = 4.0
-default_color = Color(0.458824, 0.537255, 0.643137, 0.490196)
-gradient = SubResource("Gradient_p2v2b")
+[node name="LeftPreyDetector" type="Sprite2D" parent="."]
+position = Vector2(412, 413)
+scale = Vector2(1.5344, 0.0577254)
+texture = ExtResource("5_msgib")
+script = ExtResource("6_33y5b")
+
+[node name="PerfectArea" type="Area2D" parent="LeftPreyDetector"]
+scale = Vector2(1, 0.201201)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPreyDetector/PerfectArea"]
+position = Vector2(1.30341, 0.000190735)
+shape = SubResource("RectangleShape2D_n080v")
+
+[node name="OkArea" type="Area2D" parent="LeftPreyDetector"]
+scale = Vector2(1.00842, 0.730874)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPreyDetector/OkArea"]
+position = Vector2(0.651703, 17.3236)
+rotation = 3.14159
+scale = Vector2(2.24651, 37.7501)
+shape = SubResource("RectangleShape2D_7drev")
+
+[node name="ShitArea" type="Area2D" parent="LeftPreyDetector"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPreyDetector/ShitArea"]
+position = Vector2(0.651703, 17.3236)
+rotation = 3.14159
+scale = Vector2(2.24651, 61.3385)
+shape = SubResource("RectangleShape2D_7drev")
+
+[node name="ExclamationSpawnPosition" type="Node2D" parent="LeftPreyDetector"]
+position = Vector2(86.6788, -1281.93)
+script = ExtResource("7_n2tx4")
+
+[node name="RightPreyDetector" type="Sprite2D" parent="."]
+position = Vector2(690, 412)
+scale = Vector2(1.5344, 0.0577254)
+texture = ExtResource("5_msgib")
+script = ExtResource("6_33y5b")
+input = "key_right"
+
+[node name="ExclamationSpawnPosition" type="Node2D" parent="RightPreyDetector"]
+position = Vector2(-94.4995, -1264.61)
+scale = Vector2(1, 1)
+script = ExtResource("7_n2tx4")
+
+[node name="PerfectArea" type="Area2D" parent="RightPreyDetector"]
+scale = Vector2(1, 0.160004)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPreyDetector/PerfectArea"]
+position = Vector2(1.30341, 0.000190735)
+shape = SubResource("RectangleShape2D_n080v")
+
+[node name="OkArea" type="Area2D" parent="RightPreyDetector"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPreyDetector/OkArea"]
+position = Vector2(0.651703, 17.3236)
+rotation = 3.14159
+scale = Vector2(2.24349, 27.5573)
+shape = SubResource("RectangleShape2D_7drev")
+
+[node name="ShitArea" type="Area2D" parent="RightPreyDetector"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPreyDetector/ShitArea"]
+position = Vector2(0.651703, 17.3236)
+rotation = 3.14159
+scale = Vector2(2.24651, 61.3385)
+shape = SubResource("RectangleShape2D_7drev")
+
+[node name="BackgroundCrabs" type="Node2D" parent="."]
+script = SubResource("GDScript_n8g7x")
+
+[node name="ScoreBoard" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 53.0
+offset_bottom = 41.0
+scale = Vector2(4.83963, 4.83963)
+text = "balls"
 
 [connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]
+[connection signal="area_entered" from="LeftPreyDetector/PerfectArea" to="LeftPreyDetector" method="_on_perfect_area_area_entered"]
+[connection signal="area_exited" from="LeftPreyDetector/PerfectArea" to="LeftPreyDetector" method="_on_perfect_area_area_exited"]
+[connection signal="area_entered" from="LeftPreyDetector/OkArea" to="LeftPreyDetector" method="_on_ok_area_area_entered"]
+[connection signal="area_exited" from="LeftPreyDetector/OkArea" to="LeftPreyDetector" method="_on_ok_area_area_exited"]
+[connection signal="area_entered" from="LeftPreyDetector/ShitArea" to="LeftPreyDetector" method="_on_shit_area_area_entered"]
+[connection signal="area_exited" from="LeftPreyDetector/ShitArea" to="LeftPreyDetector" method="_on_shit_area_area_exited"]
+[connection signal="area_entered" from="RightPreyDetector/PerfectArea" to="RightPreyDetector" method="_on_perfect_area_area_entered"]
+[connection signal="area_exited" from="RightPreyDetector/PerfectArea" to="RightPreyDetector" method="_on_perfect_area_area_exited"]
+[connection signal="area_entered" from="RightPreyDetector/OkArea" to="RightPreyDetector" method="_on_ok_area_area_entered"]
+[connection signal="area_exited" from="RightPreyDetector/OkArea" to="RightPreyDetector" method="_on_ok_area_area_exited"]
+[connection signal="area_entered" from="RightPreyDetector/ShitArea" to="RightPreyDetector" method="_on_shit_area_area_entered"]
+[connection signal="area_exited" from="RightPreyDetector/ShitArea" to="RightPreyDetector" method="_on_shit_area_area_exited"]

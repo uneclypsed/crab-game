@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkrjdswx66nkt"]
+
+[ext_resource type="Script" path="res://Scripts/background_crab.gd" id="1_sp3w6"]
+[ext_resource type="Texture2D" uid="uid://c3gd0pyg8i5a" path="res://Assets/stock_crab1.webp" id="2_gegkr"]
+[ext_resource type="Texture2D" uid="uid://33dw05a08d0g" path="res://Assets/stock_crab2.png" id="3_aclmm"]
+[ext_resource type="Texture2D" uid="uid://b5lrs6ay0y8lc" path="res://Assets/stock_crab3.webp" id="4_sqvw7"]
+[ext_resource type="Texture2D" uid="uid://xoqng6soljp7" path="res://Assets/stock_crab4.png" id="5_gc026"]
+[ext_resource type="Texture2D" uid="uid://sm2l5ovv2are" path="res://Assets/stock_crab5.webp" id="6_ljrbo"]
+
+[node name="BackgroundCrab" type="Node2D"]
+script = ExtResource("1_sp3w6")
+
+[node name="Crab1" type="Sprite2D" parent="."]
+position = Vector2(134, 104)
+texture = ExtResource("2_gegkr")
+
+[node name="Crab2" type="Sprite2D" parent="."]
+position = Vector2(134, 104)
+scale = Vector2(0.132116, 0.132116)
+texture = ExtResource("3_aclmm")
+
+[node name="Crab3" type="Sprite2D" parent="."]
+position = Vector2(134, 104)
+scale = Vector2(0.171606, 0.171606)
+texture = ExtResource("4_sqvw7")
+
+[node name="Crab4" type="Sprite2D" parent="."]
+position = Vector2(134, 104)
+scale = Vector2(1.04093, 1.04093)
+texture = ExtResource("5_gc026")
+
+[node name="Crab5" type="Sprite2D" parent="."]
+position = Vector2(134, 104)
+scale = Vector2(0.706095, 0.706095)
+texture = ExtResource("6_ljrbo")
