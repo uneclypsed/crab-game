@@ -111,14 +111,27 @@ size = Vector2(50.304, 15.9657)
 script/source = "extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+var b_crab = load(\"res://Scenes/Background_Crab.tscn\")
+var b_crab_instance = null
+
+#Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func spawn_b_crab():
+	add_child(b_crab_instance)
+	b_crab_instance = b_crab.instantiate()
+	b_crab_instance.initialize()
+	b_crab_instance.x_speed = randf_range(2, 4)
+
+
+func _on_timer_timeout() -> void:
+	spawn_b_crab()
 "
 
 [node name="GamePlayScene" type="Node2D"]

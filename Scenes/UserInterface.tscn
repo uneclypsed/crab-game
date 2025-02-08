@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ehcfgfr10ic" path="res://Assets/sprites/UserInterfaceImgs/Revolution.png" id="4_7hl3y"]
 [ext_resource type="Texture2D" uid="uid://bb27ah2hv5x1m" path="res://Assets/sprites/UserInterfaceImgs/Untitled_Artwork-2 (2).png" id="5_eol01"]
 [ext_resource type="Texture2D" uid="uid://busis2v3bi1sq" path="res://Assets/sprites/UserInterfaceImgs/Name.png" id="6_h7hcq"]
-[ext_resource type="FontFile" uid="uid://b3hj6e6eyuy7o" path="res://Assets/KumarOne-Regular.ttf" id="7_6ukvf"]
+[ext_resource type="FontFile" uid="uid://b3hj6e6eyuy7o" path="res://Assets/Fonts/KumarOne-Regular.ttf" id="7_6ukvf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
