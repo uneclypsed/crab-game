@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxhbki6l3rncg"]
+
+[ext_resource type="Texture2D" uid="uid://cqg1ohdbisaey" path="res://prey_sprites.png" id="1_dxlwy"]
+[ext_resource type="Script" path="res://fish_script.gd" id="1_ve0pi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brcsr"]
+size = Vector2(165, 146.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lct0c"]
+atlas = ExtResource("1_dxlwy")
+region = Rect2(0, 0, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s4se"]
+atlas = ExtResource("1_dxlwy")
+region = Rect2(0, 897, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x5qr"]
+atlas = ExtResource("1_dxlwy")
+region = Rect2(1129, 897, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfgyj"]
+atlas = ExtResource("1_dxlwy")
+region = Rect2(0, 1794, 1129, 897)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmyd6"]
+atlas = ExtResource("1_dxlwy")
+region = Rect2(1129, 1794, 1129, 897)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rupoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lct0c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s4se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x5qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfgyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmyd6")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 8.0
+}]
+
+[node name="FishArea" type="Area2D"]
+position = Vector2(437, 238)
+scale = Vector2(0.330308, 0.330308)
+script = ExtResource("1_ve0pi")
+
+[node name="FishGoodCollision" type="CollisionShape2D" parent="."]
+position = Vector2(51, -21)
+shape = SubResource("RectangleShape2D_brcsr")
+
+[node name="PreySprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rupoy")
+animation = &"explode"

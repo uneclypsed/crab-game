@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://biya1spqddr43"]
+[gd_scene load_steps=3 format=3 uid="uid://biya1spqddr43"]
 
 [ext_resource type="Script" path="res://audio_player.gd" id="1_3masf"]
 
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_f21mk"]
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+position = Vector2(416, 276)
+stream = SubResource("AudioStreamMP3_f21mk")
 script = ExtResource("1_3masf")
