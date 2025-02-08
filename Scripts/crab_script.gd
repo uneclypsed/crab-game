@@ -12,6 +12,10 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	if is_walking:
+<<<<<<< Updated upstream
+=======
+		print("LLL")
+>>>>>>> Stashed changes
 		position.x += x_speed * delta
 		if position.x >= og_pos[0]:
 			position = og_pos

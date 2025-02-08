@@ -80,6 +80,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+<<<<<<< Updated upstream
 func _process(_delta: float) -> void:
 	pass
 	#if (music != null):
@@ -128,3 +129,10 @@ func _on_StartTimer_timeout():
 		play()
 		$StartTimer.stop()
 	_report_beat()
+=======
+func _process(delta: float) -> void:
+	if (CrabRaveMusic != null):
+		if !is_playing():
+			stream = CrabRaveMusic
+			play()
+>>>>>>> Stashed changes

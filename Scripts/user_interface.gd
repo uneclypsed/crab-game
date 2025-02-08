@@ -2,9 +2,7 @@ extends Control
 
 var PlayerScores;
 var PlayerLength = 0;
-var currPlayerName;
 var minimumScore = -1;
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +28,7 @@ func addScore(PlayerName: String, score:int):
 			break;
 	
 func _on_line_edit_text_submitted(new_text: String) -> void:
+<<<<<<< Updated upstream
 	var simultaneous_scene = preload("res://Scenes/Gameplay.tscn").instantiate();
 	currPlayerName = new_text;
 	get_tree().root.add_child(simultaneous_scene);
@@ -37,3 +36,7 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	
 	
 #func _physics_process(delta):
+=======
+	#get_tree().change_scene(res://p)
+	pass;
+>>>>>>> Stashed changes

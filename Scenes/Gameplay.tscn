@@ -1,13 +1,22 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=23 format=3 uid="uid://bhq2sy8vq7xdf"]
+=======
+[gd_scene load_steps=25 format=3 uid="uid://bhq2sy8vq7xdf"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
 [ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
 [ext_resource type="Texture2D" uid="uid://d3c7qbwyqqddu" path="res://Assets/sprites/crab_sprites.png" id="3_fwdxp"]
 [ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Texture2D" uid="uid://ds5drujghurcm" path="res://Assets/sprites/icon.svg" id="5_msgib"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://Scripts/prey_detector.gd" id="6_33y5b"]
 [ext_resource type="Script" path="res://Scripts/spawn_background_crabs.gd" id="7_awh6n"]
 [ext_resource type="Script" path="res://Scripts/exclamation_spawn_position.gd" id="7_n2tx4"]
 
+<<<<<<< Updated upstream
 [sub_resource type="AtlasTexture" id="AtlasTexture_tej2g"]
 atlas = ExtResource("3_fwdxp")
 region = Rect2(4096, 4096, 2048, 2048)
@@ -53,6 +62,53 @@ atlas = ExtResource("3_fwdxp")
 region = Rect2(6144, 2048, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6mif"]
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(4096, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awj5f"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7y22"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(2048, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtm4e"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(2048, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j78q"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(6144, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdk47"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(0, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_420em"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(4096, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b02f"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(6144, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk5y8"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(2048, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2trgq"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(0, 4096, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0w2p"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(6144, 2048, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar63b"]
+>>>>>>> Stashed changes
 atlas = ExtResource("3_fwdxp")
 region = Rect2(4096, 0, 2048, 2048)
 
@@ -121,7 +177,38 @@ size = Vector2(125.242, 273.512)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7drev"]
 size = Vector2(50.304, 15.9657)
 
+<<<<<<< Updated upstream
 [node name="GamePlayScene" type="Node2D" groups=["game_scene"]]
+=======
+[sub_resource type="GDScript" id="GDScript_n8g7x"]
+script/source = "extends Node2D
+
+
+var b_crab = load(\"res://Scenes/Background_Crab.tscn\")
+var b_crab_instance = null
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func spawn_b_crab():
+	add_child(b_crab_instance)
+	b_crab_instance = b_crab.instantiate()
+	b_crab_instance.initialize()
+	b_crab_instance.x_speed = randf_range(100, 400)
+
+
+func _on_timer_timeout() -> void:
+	spawn_b_crab()
+"
+
+[node name="GamePlayScene" type="Node2D"]
+>>>>>>> Stashed changes
 script = ExtResource("1_y3lv6")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_3ryrm")]
@@ -131,11 +218,16 @@ position = Vector2(134, 318)
 position = Vector2(548, 497)
 scale = Vector2(0.182823, 0.155244)
 sprite_frames = SubResource("SpriteFrames_vi4th")
-animation = &"snap_right"
+animation = &"idle"
 script = ExtResource("4_4skr6")
 
 [node name="LeftPreyDetector" type="Sprite2D" parent="."]
 position = Vector2(412, 413)
+<<<<<<< Updated upstream
+=======
+scale = Vector2(1.5344, 0.0577254)
+texture = ExtResource("5_msgib")
+>>>>>>> Stashed changes
 script = ExtResource("6_33y5b")
 
 [node name="PerfectArea" type="Area2D" parent="LeftPreyDetector"]
@@ -168,7 +260,13 @@ position = Vector2(138, -53)
 script = ExtResource("7_n2tx4")
 
 [node name="RightPreyDetector" type="Sprite2D" parent="."]
+<<<<<<< Updated upstream
 position = Vector2(690, 413)
+=======
+position = Vector2(690, 412)
+scale = Vector2(1.5344, 0.0577254)
+texture = ExtResource("5_msgib")
+>>>>>>> Stashed changes
 script = ExtResource("6_33y5b")
 input = "key_right"
 

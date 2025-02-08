@@ -12,6 +12,8 @@ var okay = 0
 var score : int = 0
 var bpm = 125
 
+var x_speed = 3
+
 
 var x_speed = 3
 
