@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ujjbtu3i701"]
+[gd_scene load_steps=7 format=3 uid="uid://d0ujjbtu3i701"]
 
 [ext_resource type="Script" path="res://Scripts/user_interface.gd" id="1_thrp1"]
 [ext_resource type="Texture2D" uid="uid://dmc8d41cu1n57" path="res://Assets/sprites/UserInterfaceImgs/Background.png" id="2_314j6"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d1ehcfgfr10ic" path="res://Assets/sprites/UserInterfaceImgs/Revolution.png" id="4_7hl3y"]
 [ext_resource type="Texture2D" uid="uid://bb27ah2hv5x1m" path="res://Assets/sprites/UserInterfaceImgs/Untitled_Artwork-2 (2).png" id="5_eol01"]
 [ext_resource type="Texture2D" uid="uid://busis2v3bi1sq" path="res://Assets/sprites/UserInterfaceImgs/Name.png" id="6_h7hcq"]
-[ext_resource type="FontFile" uid="uid://b3hj6e6eyuy7o" path="res://Assets/KumarOne-Regular.ttf" id="7_6ukvf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,31 +35,24 @@ region_enabled = true
 region_rect = Rect2(125, 150, 850, 200)
 
 [node name="UntitledArtwork-2(2)" type="Sprite2D" parent="."]
-position = Vector2(578, 459)
+position = Vector2(578, 482.5)
 texture = ExtResource("5_eol01")
 region_enabled = true
 region_rect = Rect2(50, 300, 900, 250)
 
 [node name="Name" type="Sprite2D" parent="."]
-position = Vector2(368, 496.5)
+position = Vector2(368, 520)
 texture = ExtResource("6_h7hcq")
 region_enabled = true
 region_rect = Rect2(100, 400, 350, 130)
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 514.0
-offset_top = 435.0
-offset_right = 956.0
-offset_bottom = 540.0
-scale = Vector2(0.974329, 1)
-theme_override_colors/font_placeholder_color = Color(0.481073, 0.656781, 0.797467, 1)
-theme_override_colors/font_outline_color = Color(0.693098, 0.803747, 0.902488, 1)
-theme_override_colors/font_color = Color(0.423529, 0.415686, 0.513726, 1)
-theme_override_constants/outline_size = 19
-theme_override_fonts/font = ExtResource("7_6ukvf")
-theme_override_font_sizes/font_size = 50
-placeholder_text = "Enter Name"
+offset_left = 524.0
+offset_top = 458.0
+offset_right = 857.0
+offset_bottom = 563.0
+placeholder_text = "Enter your name!"
 alignment = 1
 flat = true
 
