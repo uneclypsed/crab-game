@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhq2sy8vq7xdf"]
+[gd_scene load_steps=21 format=3 uid="uid://bhq2sy8vq7xdf"]
 
 [ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
 [ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
 [ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://Assets/crab_sprites.png" id="3_fwdxp"]
+[ext_resource type="Texture2D" uid="uid://cl72vgi3k1nps" path="res://Assets/Beach Background.jpg" id="3_yaeso"]
 [ext_resource type="Script" path="res://Scripts/crab_sprite.gd" id="4_4skr6"]
+[ext_resource type="Texture2D" uid="uid://ctxl68j8rn0ys" path="res://Assets/Line.png" id="6_ixjde"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
 atlas = ExtResource("3_fwdxp")
@@ -112,10 +114,24 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_p2v2b"]
+offsets = PackedFloat32Array(0, 0.526667, 1)
+colors = PackedColorArray(0.564706, 0.580392, 0.701961, 1, 0.55451, 0.580392, 0.712157, 1, 0.545098, 0.580392, 0.721569, 1)
+
 [node name="GamePlayScene" type="Node2D"]
 script = ExtResource("1_y3lv6")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_3ryrm")]
+
+[node name="BeachBackground" type="Sprite2D" parent="."]
+position = Vector2(575, 295)
+scale = Vector2(1.15625, 0.833008)
+texture = ExtResource("3_yaeso")
+
+[node name="Line" type="Sprite2D" parent="."]
+position = Vector2(552, 415)
+scale = Vector2(0.710938, 0.710938)
+texture = ExtResource("6_ixjde")
 
 [node name="CrabSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(548, 497)
@@ -123,5 +139,15 @@ scale = Vector2(0.182823, 0.155244)
 sprite_frames = SubResource("SpriteFrames_vi4th")
 animation = &"idle"
 script = ExtResource("4_4skr6")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+position = Vector2(267.398, 0)
+scale = Vector2(0.48537, 1)
+points = PackedVector2Array(3, 420, 1145, 420)
+closed = true
+width = 4.0
+default_color = Color(0.458824, 0.537255, 0.643137, 0.490196)
+gradient = SubResource("Gradient_p2v2b")
 
 [connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]
