@@ -1,9 +1,19 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=22 format=3 uid="uid://bhq2sy8vq7xdf"]
 
 [ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
 [ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
 [ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
+=======
+[gd_scene load_steps=25 format=3 uid="uid://bhq2sy8vq7xdf"]
+
+[ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
+[ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
+[ext_resource type="Texture2D" uid="uid://d3c7qbwyqqddu" path="res://Assets/sprites/crab_sprites.png" id="3_fwdxp"]
+[ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
+[ext_resource type="Texture2D" uid="uid://ds5drujghurcm" path="res://Assets/sprites/icon.svg" id="5_msgib"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=25 format=3 uid="uid://bhq2sy8vq7xdf"]
 
