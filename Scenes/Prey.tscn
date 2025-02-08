@@ -100,7 +100,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khy0k"]
-size = Vector2(165, 146.5)
+size = Vector2(173.283, 107.698)
 
 [node name="Prey" type="Area2D" groups=["prey"]]
 position = Vector2(2, 0)
@@ -117,7 +117,7 @@ animation = &"explode"
 sprite_frames = SubResource("SpriteFrames_iijml")
 
 [node name="PreyGoodCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-59, -70)
+position = Vector2(-79.8669, -5.54351)
 scale = Vector2(0.986518, 2.1999)
 shape = SubResource("RectangleShape2D_khy0k")
 

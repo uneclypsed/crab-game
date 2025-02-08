@@ -66,7 +66,6 @@ func initialize(lane):
 	speed = DIST_TO_TARGET / speed
 
 func tween_done():
-	print("efniesnfiowen")
 	hit = true
 
 

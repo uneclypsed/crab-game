@@ -61,21 +61,12 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta):
-<<<<<<< Updated upstream
 	position.y = bezier(time).y+og_y
 	scale.x = og_squish + (bezier(time).y)*.003
 	time += delta*bounce_speed
 	if time > 1:
 		time = 0
 
-=======
-	scale.y -= squish_speed
-	position.y += y_comp
-	if og_squish - scale.y >= squish_limit:
-		scale.y = og_squish
-		position.y = og_y
-	
->>>>>>> Stashed changes
 	position.x += x_speed*delta
 	
 	if position.x >= x_max:

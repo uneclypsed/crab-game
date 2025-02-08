@@ -12,8 +12,6 @@ var okay = 0
 var score : int = 0
 var bpm = 125
 
-var x_speed = 3
-
 
 var x_speed = 3
 
@@ -28,13 +26,13 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _input(event):
+#func _input(event):
 	#if event.is_action_pressed("key_left"):
 		#spawn_prey(0)
 	#if event.is_action_pressed("key_right"):
 		#spawn_prey(1)
-	if event.is_action_pressed("space"):
-		$BackgroundCrabs.spawn_b_crab()
+	#if event.is_action_pressed("space"):
+		#$BackgroundCrabs.spawn_b_crab()
 
 
 func test(str):
@@ -70,5 +68,15 @@ func update_score(quality):
 
 
 func _on_audio_stream_player_2d_finished() -> void:
-	print("EFFMklenFINEJKFNJEKJEF")
-	# switch seens, done
+	#var simultaneous_scene = preload("res://Scenes/GameOver.tscn").instantiate();
+	#var currentNode = get_node("..");
+	##
+	#get_tree().root.add_child(simultaneous_scene);
+	#get_tree().root.remove_child(self)
+	
+	#get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+	var previous = SceneSwitcher.get_param("UserInterfaceInput")
+	var values = [previous[0],previous[1],perfect, nice, okay, score, previous[6]]
+	SceneSwitcher.change_scene("res://Scenes/GameOver.tscn",{"UserInterfaceInput":values})
+
+	#currentNode.queue_free();

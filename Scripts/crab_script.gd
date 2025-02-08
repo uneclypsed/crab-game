@@ -12,10 +12,6 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	if is_walking:
-<<<<<<< Updated upstream
-=======
-		print("LLL")
->>>>>>> Stashed changes
 		position.x += x_speed * delta
 		if position.x >= og_pos[0]:
 			position = og_pos
@@ -29,7 +25,7 @@ func _process(delta: float) -> void:
 
 var a_time = null
 var b_time = null
-var max_milliseconds = 20
+var max_milliseconds = 100
 var action_A = 'key_left'
 var action_B = 'key_right'
 

@@ -11,9 +11,19 @@ config_version=5
 [application]
 
 config/name="CrabGame"
-run/main_scene="res://Scenes/Gameplay.tscn"
+run/main_scene="res://Scenes/UserInterface.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+interface="*res://Scripts/user_interface.gd"
+GamePlay="*res://Scripts/gameplay_script.gd"
+SceneSwitcher="*res://Scripts/Scene_Switcher.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
