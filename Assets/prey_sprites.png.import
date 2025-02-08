@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqg1ohdbisaey"
-path="res://.godot/imported/prey_sprites.png-63f9c3f133bba90509985548340b6e23.ctex"
+path="res://.godot/imported/prey_sprites.png-a4b6e77af1752b8a116a843970e40029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prey_sprites.png"
-dest_files=["res://.godot/imported/prey_sprites.png-63f9c3f133bba90509985548340b6e23.ctex"]
+source_file="res://Assets/prey_sprites.png"
+dest_files=["res://.godot/imported/prey_sprites.png-a4b6e77af1752b8a116a843970e40029.ctex"]
 
 [params]
 

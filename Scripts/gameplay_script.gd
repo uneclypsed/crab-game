@@ -27,3 +27,5 @@ func spawn_prey(lane):
 	prey_instance = prey.instantiate()
 	prey_instance.initialize(lane)
 	add_child(prey_instance)
+	
+	
