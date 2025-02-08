@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxq163r35bef8"]
+
+[ext_resource type="Texture2D" uid="uid://dhypbw6wfpp4r" path="res://Assets/icon.svg" id="1_jiakp"]
+[ext_resource type="Script" path="res://Scripts/exclamation.gd" id="1_o5eq7"]
+
+[node name="QualityExclamation" type="Node2D"]
+script = ExtResource("1_o5eq7")
+
+[node name="TempSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.638515, 0.627488)
+texture = ExtResource("1_jiakp")

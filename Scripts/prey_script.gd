@@ -4,17 +4,21 @@ const TARGET_Y = 164
 const SPAWN_Y = -16
 const DIST_TO_TARGET = TARGET_Y - SPAWN_Y
 
-const LEFT_LANE_X = 120
-const RIGHT_LANE_X = 1000
+const LEFT_LANE_X = 400
+const RIGHT_LANE_X = 700
 const LEFT_LANE_SPAWN = Vector2(LEFT_LANE_X, SPAWN_Y)
 const RIGHT_LANE_SPAWN = Vector2(RIGHT_LANE_X, SPAWN_Y)
 
-const Y_LIMIT = 1000
+const Y_LIMIT = 900
 
 var speed = 0
 var hit = false
 
 var sprite : AnimatedSprite2D = null
+
+@export var fade_speed = .3
+
+var is_fading = false
 
 
 
@@ -26,18 +30,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+		
 
 
 
 
 
 func _physics_process(delta):
-	if !hit:
-		position.y += speed * delta
-		if position.y > Y_LIMIT:
-			queue_free()
-	else:
-		$Node2D.position.y -= speed * delta
+	#if !hit:
+	position.y += speed * delta
+	if position.y > Y_LIMIT:
+		queue_free()
+	#else:
+		#position.y -= speed * delta
 
 # initialize prey in its lane
 func initialize(lane):
@@ -55,7 +60,7 @@ func initialize(lane):
 		
 	sprite.play("default")
 	
-	speed = DIST_TO_TARGET / 2.0
+	speed = DIST_TO_TARGET #/ 2.0
 
 
 func destroy():
@@ -65,7 +70,15 @@ func destroy():
 
 
 func kill_fish() -> void:
-	$PreySprite.play("explode")
+	sprite.play("explode")
+	fade_sprite()
+	
+func fade_sprite() -> void:
+	sprite.modulate.a -= fade_speed  # Decrease alpha value
+
+	#if sprite.modulate.a <= 0:
+		## Optionally hide or queue free the sprite when fully faded
+		#sprite.visible = false
 
 func _on_timer_timeout() -> void:
 	queue_free()

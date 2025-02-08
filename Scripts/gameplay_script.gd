@@ -5,6 +5,9 @@ extends Node2D
 var prey = load("res://Scenes/Prey.tscn")
 var prey_instance
 
+var score : int = 0
+var bpm = 125
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,5 +30,16 @@ func spawn_prey(lane):
 	prey_instance = prey.instantiate()
 	prey_instance.initialize(lane)
 	add_child(prey_instance)
+	
+	
+func update_score(quality):
+	if quality == 0:
+		score += 10
+	elif quality == 1:
+		score += 3
+	elif quality == 2:
+		score += 1
+	
+	$ScoreBoard.text = "Score: " + str(score)
 	
 	
