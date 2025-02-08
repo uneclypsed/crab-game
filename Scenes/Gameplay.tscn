@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
 [ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
-[ext_resource type="Texture2D" uid="uid://di41so3ucgiu6" path="res://Assets/crab_sprites.png" id="3_fwdxp"]
+[ext_resource type="Texture2D" path="res://Assets/crab_sprites.png" id="3_fwdxp"]
 [ext_resource type="Texture2D" uid="uid://cl72vgi3k1nps" path="res://Assets/Beach Background.jpg" id="3_yaeso"]
 [ext_resource type="Script" path="res://Scripts/crab_sprite.gd" id="4_4skr6"]
 [ext_resource type="Texture2D" uid="uid://ctxl68j8rn0ys" path="res://Assets/Line.png" id="6_ixjde"]
