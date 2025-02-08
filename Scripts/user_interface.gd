@@ -34,3 +34,6 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	currPlayerName = new_text;
 	get_tree().root.add_child(simultaneous_scene);
 	hide();
+	
+	
+#func _physics_process(delta):

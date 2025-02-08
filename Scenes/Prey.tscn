@@ -106,6 +106,7 @@ size = Vector2(165, 146.5)
 position = Vector2(2, 0)
 scale = Vector2(0.145155, 0.145155)
 script = ExtResource("1_r2kic")
+speed = 0.5
 
 [node name="FishSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-117.491, -57.0671)

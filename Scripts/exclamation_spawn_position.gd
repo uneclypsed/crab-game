@@ -13,8 +13,9 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_exclaim(quality):
-	add_child(exclaim_instance)
+	print("AHHH")
 	exclaim_instance = exclaim.instantiate()
 	exclaim_instance.initialize(quality)
+	add_child(exclaim_instance)
 	#exclaim_instance.position[1] = position
 	

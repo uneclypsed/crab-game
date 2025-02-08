@@ -35,16 +35,21 @@ func _input(event):
 		$BackgroundCrabs.spawn_b_crab()
 
 
-func spawn_prey(lane):
-	prey_instance = prey.instantiate()
-	if (lane == 0):
+func test(str):
+	print(str)
+
+
+
+func spawn_prey(preyL, preyR):
+	if preyL == 1:
+		prey_instance = prey.instantiate()
 		prey_instance.initialize(0)
-	if (lane == 1):
+		add_child(prey_instance)
+	if preyR == 1:
+		prey_instance = prey.instantiate()
 		prey_instance.initialize(1)
-	add_child(prey_instance)
+		add_child(prey_instance)
 	
-func test_sig():
-	print("eee ooo")
 	
 func update_score(quality):
 	if quality == 0:
@@ -60,3 +65,8 @@ func update_score(quality):
 	$ScoreBoard.text = "Score: " + str(score)
 	
 	
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	print("EFFMklenFINEJKFNJEKJEF")
+	# switch seens, done

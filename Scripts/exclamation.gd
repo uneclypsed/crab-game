@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var fade_speed = .07
-@export var fall_speed = 60
+@export var fade_speed = 3
+@export var fall_speed = 300
 
 var sprite : Sprite2D = null
 var spawn_position = Vector2(0, 100)
@@ -19,17 +19,18 @@ func _process(delta: float) -> void:
 func initialize(quality):
 	#print("in!")
 	if quality == 0:
-		sprite = $TempSprite
+		sprite = $Perfect
 	elif quality == 1:
-		sprite = $TempSprite
+		sprite = $Nice
 	elif quality == 2:
-		sprite = $TempSprite
+		sprite = $Okay
+	sprite.visible = true
 	
 	#position = spawn_position
 	
 func _physics_process(delta):
 	if sprite.modulate.a >= 0:
-		position[1] += fall_speed
-		sprite.modulate.a -= fade_speed
+		position[1] += fall_speed*delta
+		sprite.modulate.a -= fade_speed*delta
 	else: 
 		queue_free()

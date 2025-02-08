@@ -11,7 +11,7 @@ const RIGHT_LANE_SPAWN = Vector2(RIGHT_LANE_X, SPAWN_Y)
 
 const Y_LIMIT = 900
 
-var speed = 0
+@export var speed : float = 1
 var hit = false
 
 var sprite : AnimatedSprite2D = null
@@ -20,11 +20,12 @@ var sprite : AnimatedSprite2D = null
 
 var is_fading = false
 
-
+var tween 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+	#tween.tween_property(self, "position", Vector2(200, 300), 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,10 +38,10 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta):
-	#if !hit:
-	position.y += speed * delta
-	if position.y > Y_LIMIT:
-		queue_free()
+	if hit:
+		position.y += speed * delta
+		if position.y > Y_LIMIT:
+			queue_free()
 	#else:
 		#position.y -= speed * delta
 
@@ -59,14 +60,23 @@ func initialize(lane):
 		return
 		
 	sprite.play("default")
-	
-	speed = DIST_TO_TARGET #/ 2.0
+	tween = create_tween()
+	tween.tween_property(self, "position", Vector2(position.x, 412), 1.94)
+	tween.connect("finished", tween_done)
+	speed = DIST_TO_TARGET / speed
+
+func tween_done():
+	print("efniesnfiowen")
+	hit = true
+
+
 
 
 func destroy():
 	kill_fish()
 	$Timer.start()
 	hit = true
+	tween.kill()
 
 
 func kill_fish() -> void:

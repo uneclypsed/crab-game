@@ -1,12 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxq163r35bef8"]
+[gd_scene load_steps=6 format=3 uid="uid://dxq163r35bef8"]
 
 [ext_resource type="Script" path="res://Scripts/exclamation.gd" id="1_o5eq7"]
 [ext_resource type="Texture2D" uid="uid://33dw05a08d0g" path="res://Assets/stock_crab2.png" id="2_vu41s"]
+[ext_resource type="Texture2D" uid="uid://cmghb4gw6a43u" path="res://Assets/sprites/GamePlayRatings/Perfect.png" id="3_8impk"]
+[ext_resource type="Texture2D" uid="uid://d3bbv3l5ngao" path="res://Assets/sprites/GamePlayRatings/Nice.png" id="4_o4iog"]
+[ext_resource type="Texture2D" uid="uid://dqs2alpye08ht" path="res://Assets/sprites/GamePlayRatings/Okay....png" id="5_2j5m1"]
 
 [node name="QualityExclamation" type="Node2D"]
+position = Vector2(-6, 6)
 script = ExtResource("1_o5eq7")
+fall_speed = 30
 
 [node name="TempSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(4, -2)
-scale = Vector2(0.0240533, 0.733059)
+scale = Vector2(0.0111171, 0.412175)
 texture = ExtResource("2_vu41s")
+
+[node name="Perfect" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(252, 341)
+texture = ExtResource("3_8impk")
+
+[node name="Nice" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(244, 75)
+texture = ExtResource("4_o4iog")
+
+[node name="Okay" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(239, -149)
+texture = ExtResource("5_2j5m1")
