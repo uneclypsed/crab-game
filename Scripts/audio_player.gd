@@ -13,18 +13,111 @@ var current_timestamp = 0.0
 var current_measure = 0
 var current_beat = 0
 
-var upbeats = 4
+var upbeats = 10
 var spb = 0.0
 var last_reported_beat = 0
 
-var notes = []
+var notes = [
+	["hit", 0, 1, 1, 0],
+	["hit", 1, 2, 1, 1],
+	["hit", 0, 2, 1, 1],
+	["hit", 0, 3, 1, 0],
+	["hit", 1, 3, 1, 0],
+	["hit", 0, 4, 0, 1],
+	["hit", 0, 5, 1, 0],
+	["hit", 1, 5, 1, 0],
+	["hit", 0, 6, 1, 0],
+	["hit", 0, 7, 1, 0],
+	["hit", 1, 7, 1, 0],
+	["hit", 0, 8, 1, 0],
+	["hit", 0, 9, 1, 0],
+	["hit", 0, 10, 1, 0],
+	["hit", 0, 11, 1, 0],
+	["hit", 0, 12, 1, 0],
+	["hit", 0, 13, 1, 0],
+	["hit", 0, 14, 1, 0],
+	["hit", 1, 14, 1, 0],
+	["hit", 0, 15, 1, 0],
+	["hit", 0, 16, 1, 0],
+	["hit", 1, 16, 1, 0],
+	["hit", 0, 17, 1, 0],
+	["hit", 0, 18, 1, 0],
+	["hit", 0, 19, 1, 0],
+	["hit", 0, 19, 1, 0],
+	["hit", 0, 20, 1, 0],
+	["hit", 0, 21, 1, 0],
+	["hit", 0, 22, 1, 0],
+	["hit", 1, 22, 1, 0],
+	["hit", 0, 23, 1, 0],
+	["hit", 0, 24, 1, 0],
+	["hit", 0, 25, 1, 0],
+	["hit", 0, 26, 1, 0],
+	["hit", 0, 27, 1, 0],
+	["hit", 0, 28, 1, 0],
+	["hit", 0, 29, 1, 0],
+	["hit", 0, 30, 1, 0],
+	["hit", 0, 31, 1, 0],
+	["hit", 0, 32, 1, 0],
+	["hit", 0, 33, 1, 0],
+	["hit", 0, 34, 1, 0],
+	["hit", 0, 35, 1, 0],
+	["hit", 0, 36, 1, 0],
+	["hit", 0, 37, 1, 0],
+	["hit", 0, 38, 1, 0],
+	["hit", 0, 39, 1, 0],
+	["hit", 0, 40, 1, 0],
+	["hit", 0, 41, 1, 0],
+	["hit", 0, 42, 1, 0],
+	["hit", 0, 43, 1, 0],
+	["hit", 0, 44, 1, 0],
+	["hit", 0, 45, 1, 0],
+	["hit", 0, 46, 1, 0],
+	["hit", 0, 47, 1, 0],
+	["hit", 0, 48, 1, 0],
+	["hit", 0, 49, 1, 0],
+	["hit", 0, 50, 1, 0],
+	["hit", 0, 51, 1, 0],
+	["hit", 0, 52, 1, 0],
+	["hit", 0, 53, 1, 0],
+	["hit", 0, 54, 1, 0],
+	["hit", 0, 55, 1, 0],
+	["hit", 0, 56, 1, 0],
+	["hit", 0, 57, 1, 0],
+	["hit", 0, 58, 1, 0],
+	["hit", 0, 59, 1, 0],
+	["hit", 0, 60, 1, 0],
+	["hit", 0, 61, 1, 0],
+	["hit", 0, 62, 1, 0],
+	["hit", 0, 63, 1, 0],
+	["hit", 0, 64, 1, 0],
+	["hit", 0, 65, 1, 0],
+	["hit", 0, 66, 1, 0],
+	["hit", 0, 67, 1, 0],
+	["hit", 0, 68, 1, 0],
+	["hit", 0, 69, 1, 0],
+	["hit", 0, 70, 1, 0],
+	["hit", 0, 71, 1, 0],
+	["hit", 0, 72, 1, 0],
+	["hit", 0, 73, 1, 0],
+	["hit", 0, 74, 1, 0],
+	["hit", 0, 75, 1, 0],
+	["hit", 0, 76, 1, 0],
+	["hit", 0, 77, 1, 0],
+	["hit", 0, 78, 1, 0],
+	["hit", 0, 79, 1, 0],
+	["hit", 0, 80, 1, 0],
+	["hit", 0, 81, 1, 0],
+	["hit", 0, 82, 1, 0],
+	["hit", 0, 83, 1, 0],
+	["hit", 0, 84, 1, 0]
+]
 #} 
 
 # Determining how close to the beat an event is
 #var closest = 0
 #var time_off_beat = 0.0
 
-signal note(type, duration)
+signal note(type, side, duration)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,16 +141,16 @@ func _ready() -> void:
 	spb = 60.0 / bpm
 	
 	# parse beat timings
-	while parser.read() != ERR_FILE_EOF:
-		print("reading...")
-		if parser.get_node_name() == "note":
-			var new_note = { beat = 0, type = "", duration = 0 }
-			new_note["beat"] = parser.get_named_attribute_value("measure").to_int() * 4 
-			new_note["beat"] += parser.get_named_attribute_value("beat-start").to_int()
-			new_note["type"] = parser.get_named_attribute_value("type")
-			new_note["duration"] = parser.get_named_attribute_value("duration").to_int()
-		
-			notes.push_back(new_note)
+	#while parser.read() != ERR_FILE_EOF:
+		#print("reading...")
+		#if parser.get_node_name() == "note":
+			#var new_note = { beat = 0, type = "", duration = 0 }
+			#new_note["beat"] = parser.get_named_attribute_value("measure").to_int() * 4 
+			#new_note["beat"] += parser.get_named_attribute_value("beat-start").to_int()
+			#new_note["type"] = parser.get_named_attribute_value("type")
+			#new_note["duration"] = parser.get_named_attribute_value("duration").to_int()
+		#
+			#notes.push_back(new_note)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,95 +161,20 @@ func _process(_delta: float) -> void:
 			play()
 
 
-<<<<<<< Updated upstream
-#export var bpm := 100
-#export var measures := 4
-#
-## Tracking the beat and song position
-#var song_position = 0.0
-#var song_position_in_beats = 1
-#var sec_per_beat = 60.0 / bpm
-#var last_reported_beat = 0
-#var beats_before_start = 0
-#var measure = 1
-#
-## Determining how close to the beat an event is
-#var closest = 0
-#var time_off_beat = 0.0
-#
-#signal beat(position)
-#signal measure(position)
-
-
-#func _ready():
-	#sec_per_beat = 60.0 / bpm
-
-
-#func _physics_process(_delta):
-	#if playing:
-		#song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
-		#song_position -= AudioServer.get_output_latency()
-		#song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
-		#_report_beat()
-
-
-#func _report_beat():
-	#if last_reported_beat < song_position_in_beats:
-		#if measure > measures:
-			#measure = 1
-		#emit_signal("beat", song_position_in_beats)
-		#emit_signal("measure", measure)
-		#last_reported_beat = song_position_in_beats
-		#measure += 1
-#
-#
-#func play_with_beat_offset(num):
-	#beats_before_start = num
-	#$StartTimer.wait_time = sec_per_beat
-	#$StartTimer.start()
-#
-#
-#func closest_beat(nth):
-	#closest = int(round((song_position / sec_per_beat) / nth) * nth) 
-	#time_off_beat = abs(closest * sec_per_beat - song_position)
-	#return Vector2(closest, time_off_beat)
-#
-#
-#func play_from_beat(beat, offset):
-	#play()
-	#seek(beat * sec_per_beat)
-	#beats_before_start = offset
-	#measure = beat % measures
-
-
-#func _on_StartTimer_timeout():
-	#song_position_in_beats += 1
-	#if song_position_in_beats < beats_before_start - 1:
-		#$StartTimer.start()
-	#elif song_position_in_beats == beats_before_start - 1:
-		#$StartTimer.wait_time = $StartTimer.wait_time - (AudioServer.get_time_to_next_mix() +
-														#AudioServer.get_output_latency())
-		#$StartTimer.start()
-	#else:
-		#play()
-		#$StartTimer.stop()
-	#_report_beat()
-=======
 func _physics_process(_delta):
 	if playing:
 		current_timestamp = get_playback_position() + AudioServer.get_time_since_last_mix()
 		current_timestamp -= AudioServer.get_output_latency()
 		current_beat = int(floor(current_timestamp / spb)) + upbeats
-		print("beat")
 		_report_beat()
 
 
 func _report_beat():
-	print("we here")
-	if current_beat == notes.front()["beat"]:
-		var sig = notes.pop_front()
-		print("NOTE!!!")
-		note.emit(sig["type"], sig["duration"])
+	while current_beat == notes.front()[2] * 4 + notes.front()[3]:
+		print("(measure, beat): ({0},{1})".format([current_measure, current_beat]))
+		var n = notes.pop_front()
+		#note.emit(n[0], n[1], n[4])
+		get_tree().call_group("game_scene", "spawn_prey", n[1])
 
 
 func play_with_beat_offset(num):
@@ -172,6 +190,7 @@ func play_with_beat_offset(num):
 
 
 func play_from_beat(beat, offset):
+	print("here?")
 	play()
 	seek(beat * spb)
 	upbeats = offset
@@ -190,4 +209,3 @@ func _on_StartTimer_timeout():
 		play()
 		$StartTimer.stop()
 	_report_beat()
->>>>>>> Stashed changes

@@ -22,19 +22,24 @@ func _process(delta: float) -> void:
 	
 	
 func _input(event):
-	if event.is_action_pressed("key_left"):
-		spawn_prey(0)
-	if event.is_action_pressed("key_right"):
-		spawn_prey(1)
+	#if event.is_action_pressed("key_left"):
+		#spawn_prey(0)
+	#if event.is_action_pressed("key_right"):
+		#spawn_prey(1)
 	if event.is_action_pressed("space"):
 		$BackgroundCrabs.spawn_b_crab()
 
 
 func spawn_prey(lane):
 	prey_instance = prey.instantiate()
-	prey_instance.initialize(lane)
+	if (lane == 0):
+		prey_instance.initialize(0)
+	if (lane == 1):
+		prey_instance.initialize(1)
 	add_child(prey_instance)
 	
+func test_sig():
+	print("eee ooo")
 	
 func update_score(quality):
 	if quality == 0:
