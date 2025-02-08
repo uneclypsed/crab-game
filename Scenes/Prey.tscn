@@ -103,8 +103,8 @@ animations = [{
 size = Vector2(165, 146.5)
 
 [node name="Prey" type="Area2D" groups=["prey"]]
-position = Vector2(379, 301)
-scale = Vector2(0.173648, 0.173648)
+position = Vector2(2, 0)
+scale = Vector2(0.145155, 0.145155)
 script = ExtResource("1_r2kic")
 
 [node name="FishSprite" type="AnimatedSprite2D" parent="."]
@@ -114,8 +114,6 @@ animation = &"explode"
 
 [node name="SquidSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iijml")
-animation = &"explode"
-metadata/_edit_group_ = true
 
 [node name="PreyGoodCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-59, -70)

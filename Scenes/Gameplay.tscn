@@ -5,6 +5,12 @@
 [ext_resource type="Script" path="res://Scripts/crab_script.gd" id="4_4skr6"]
 [ext_resource type="Script" path="res://Scripts/prey_detector.gd" id="6_33y5b"]
 [ext_resource type="Script" path="res://Scripts/exclamation_spawn_position.gd" id="7_n2tx4"]
+[ext_resource type="Script" path="res://Scripts/timer.gd" id="8_ek3oq"]
+[gd_scene load_steps=17 format=3 uid="uid://bhq2sy8vq7xdf"]
+
+[ext_resource type="Script" path="res://Scripts/gameplay_script.gd" id="1_y3lv6"]
+[ext_resource type="PackedScene" uid="uid://biya1spqddr43" path="res://Scenes/AudioPlayer.tscn" id="2_3ryrm"]
+[ext_resource type="Texture2D" uid="uid://d3c7qbwyqqddu" path="res://Assets/sprites/crab_sprites.png" id="3_fwdxp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
 region = Rect2(4096, 4096, 2048, 2048)
@@ -15,14 +21,19 @@ region = Rect2(0, 0, 2048, 2048)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7y22"]
 region = Rect2(2048, 2048, 2048, 2048)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdk47"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(0, 2048, 2048, 2048)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtm4e"]
 region = Rect2(2048, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8j78q"]
 region = Rect2(6144, 4096, 2048, 2048)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdk47"]
-region = Rect2(0, 2048, 2048, 2048)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk5y8"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(2048, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_420em"]
 region = Rect2(4096, 2048, 2048, 2048)
@@ -30,17 +41,15 @@ region = Rect2(4096, 2048, 2048, 2048)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3b02f"]
 region = Rect2(6144, 0, 2048, 2048)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kk5y8"]
-region = Rect2(2048, 0, 2048, 2048)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar63b"]
+atlas = ExtResource("3_fwdxp")
+region = Rect2(4096, 0, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2trgq"]
 region = Rect2(0, 4096, 2048, 2048)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0w2p"]
 region = Rect2(6144, 2048, 2048, 2048)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ar63b"]
-region = Rect2(4096, 0, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vi4th"]
 animations = [{
@@ -60,13 +69,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fdk47")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gtm4e")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8j78q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fdk47")
 }],
 "loop": false,
 "name": &"snap_both",
@@ -74,13 +83,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kk5y8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_420em")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3b02f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kk5y8")
 }],
 "loop": false,
 "name": &"snap_left",
@@ -88,44 +97,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ar63b")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2trgq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p0w2p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ar63b")
 }],
 "loop": false,
 "name": &"snap_right",
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n080v"]
-size = Vector2(125.242, 273.512)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7drev"]
-size = Vector2(50.304, 15.9657)
-
-[sub_resource type="GDScript" id="GDScript_n8g7x"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="GamePlayScene" type="Node2D"]
 script = ExtResource("1_y3lv6")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_3ryrm")]
-position = Vector2(134, 318)
 
 [node name="CrabSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(548, 497)
@@ -224,3 +212,9 @@ text = "balls"
 [connection signal="area_exited" from="RightPreyDetector/OkArea" to="RightPreyDetector" method="_on_ok_area_area_exited"]
 [connection signal="area_entered" from="RightPreyDetector/ShitArea" to="RightPreyDetector" method="_on_shit_area_area_entered"]
 [connection signal="area_exited" from="RightPreyDetector/ShitArea" to="RightPreyDetector" method="_on_shit_area_area_exited"]
+
+[connection signal="timeout" from="BackgroundCrabs/Timer" to="BackgroundCrabs" method="_on_timer_timeout"]
+[connection signal="timeout" from="BackgroundCrabs/Timer" to="BackgroundCrabs/Timer" method="_on_timeout"]
+animation = &"idle"
+
+[connection signal="animation_finished" from="CrabSprite" to="CrabSprite" method="_on_animation_finished"]
