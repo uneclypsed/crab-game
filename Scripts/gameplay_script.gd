@@ -8,6 +8,8 @@ var prey_instance = null
 var score : int = 0
 var bpm = 125
 
+var x_speed = 3
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

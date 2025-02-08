@@ -1,9 +1,22 @@
 extends AnimatedSprite2D
 
+var og_pos = position
+var is_walking = true
+var x_speed = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	position.x = 5
 	play('idle')
+
+
+func _physics_process(delta):
+	if is_walking:
+		print("LLL")
+		position.x += x_speed * delta
+		if position.x >= og_pos[0]:
+			position = og_pos
+			is_walking = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

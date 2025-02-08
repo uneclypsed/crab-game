@@ -48,7 +48,7 @@ func _physics_process(delta):
 		scale.y = og_squish
 		position.y = og_y
 	
-	position.x += x_speed
+	position.x += x_speed*delta
 	
 	if position.x >= x_max:
 		queue_free()
