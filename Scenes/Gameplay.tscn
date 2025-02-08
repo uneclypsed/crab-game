@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dhypbw6wfpp4r" path="res://Assets/icon.svg" id="5_msgib"]
 [ext_resource type="Script" path="res://Scripts/prey_detector.gd" id="6_33y5b"]
 [ext_resource type="Script" path="res://Scripts/exclamation_spawn_position.gd" id="7_n2tx4"]
-[ext_resource type="Script" path="res://Scripts/background_crabs.gd" id="8_sefpr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd35i"]
 atlas = ExtResource("3_fwdxp")
@@ -122,6 +121,20 @@ size = Vector2(125.242, 273.512)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7drev"]
 size = Vector2(50.304, 15.9657)
 
+[sub_resource type="GDScript" id="GDScript_n8g7x"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="GamePlayScene" type="Node2D"]
 script = ExtResource("1_y3lv6")
 
@@ -205,7 +218,7 @@ scale = Vector2(2.24651, 61.3385)
 shape = SubResource("RectangleShape2D_7drev")
 
 [node name="BackgroundCrabs" type="Node2D" parent="."]
-script = ExtResource("8_sefpr")
+script = SubResource("GDScript_n8g7x")
 
 [node name="ScoreBoard" type="Label" parent="."]
 offset_left = 13.0
