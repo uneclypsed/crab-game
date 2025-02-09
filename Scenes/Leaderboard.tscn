@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bf27lpv4x8ltt" path="res://Assets/sprites/LeaderboardImg/1st.png" id="14_12uxc"]
 [ext_resource type="Texture2D" uid="uid://bqxnlapxwi1hy" path="res://Assets/sprites/GameOverImgs/Next Button.png" id="15_0y228"]
 [ext_resource type="FontFile" uid="uid://c3vtmasey0nlh" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="16_g7c8d"]
-[ext_resource type="Script" path="res://Scenes/next_button2.gd" id="17_sw2kj"]
+[ext_resource type="Script" path="res://Scripts/next_button2.gd" id="17_sw2kj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
